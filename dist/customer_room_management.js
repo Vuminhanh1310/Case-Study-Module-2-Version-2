@@ -1,30 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HotelManagement = void 0;
-class HotelManagement {
+exports.CustomerRoomManagement = void 0;
+class CustomerRoomManagement {
     constructor() {
-        this.TotalRoomInHotel = [];
         this.listOfCustomerRooms = [];
     }
     getListOfCustomerRooms() {
         return this.listOfCustomerRooms;
     }
-    createRoomForRent(room) {
+    pushCustomerRoomIntoListOfCustomerRoom(room) {
         this.listOfCustomerRooms.push(room);
     }
-    findIndexOfCustomerRoomInList(room_number) {
+    findIndexOfCustomerRoom(room_number) {
         let indexRoom = -1;
         for (let i = 0; i < this.listOfCustomerRooms.length; i++) {
-            if (this.listOfCustomerRooms[i].getRoomNumber() === room_number) {
+            if (this.listOfCustomerRooms[i].getCustomerRoomNumber() === room_number) {
                 indexRoom = i;
             }
         }
         return indexRoom;
     }
-    updateRoom(index_room, new_room) {
+    updateCustomerRoom(index_room, new_room) {
         this.listOfCustomerRooms[index_room] = new_room;
     }
-    removeRoom(index_room) {
+    takeCustomerOutOfRoom(index_room) {
         this.listOfCustomerRooms.splice(index_room, 1);
     }
     checkOut(index_room) {
@@ -32,5 +31,12 @@ class HotelManagement {
         let day = this.listOfCustomerRooms[index_room].getDayOfRents();
         return price * day;
     }
+    getCustomerRoomNumberList() {
+        let listOfCustomerRoomNumber = [];
+        for (let i = 0; i < this.listOfCustomerRooms.length; i++) {
+            listOfCustomerRoomNumber.push(this.listOfCustomerRooms[i].getRoom().getRoomNumber());
+        }
+        return listOfCustomerRoomNumber;
+    }
 }
-exports.HotelManagement = HotelManagement;
+exports.CustomerRoomManagement = CustomerRoomManagement;
