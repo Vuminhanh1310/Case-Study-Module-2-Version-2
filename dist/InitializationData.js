@@ -6,10 +6,13 @@ const hotel_room_1 = require("./hotel_room");
 const customer_room_1 = require("./customer_room");
 const customer_room_management_1 = require("./customer_room_management");
 const hotel_room_management_1 = require("./hotel_room_management");
+const user_1 = require("./user");
+const user_management_1 = require("./user_management");
 class InitializationData {
     constructor() {
         this.customerManagement = new customer_room_management_1.CustomerRoomManagement();
         this.hotelRoomManagement = new hotel_room_management_1.HotelRoomManagement();
+        this.userManagement = new user_management_1.UserManagement();
     }
     initHotelRoom() {
         let numberOfFloor = 6;
@@ -66,6 +69,28 @@ class InitializationData {
         this.customerManagement.pushCustomerRoomIntoListOfCustomerRoom(customerRoom4);
         this.customerManagement.pushCustomerRoomIntoListOfCustomerRoom(customerRoom5);
         this.customerManagement.pushCustomerRoomIntoListOfCustomerRoom(customerRoom6);
+    }
+    initStaff() {
+        let staff1 = new user_1.User('letan01@gmail.com', 'letan01', 'staff');
+        let staff2 = new user_1.User('letan02@gmail.com', 'letan02', 'staff');
+        let staff3 = new user_1.User('letan03@gmail.com', 'letan03', 'staff');
+        let staff4 = new user_1.User('letan04@gmail.com', 'letan04', 'staff');
+        let staff5 = new user_1.User('letan05@gmail.com', 'letan05', 'staff');
+        this.userManagement.takeStaffIntoListOfStaff(staff1);
+        this.userManagement.takeStaffIntoListOfStaff(staff2);
+        this.userManagement.takeStaffIntoListOfStaff(staff3);
+        this.userManagement.takeStaffIntoListOfStaff(staff4);
+        this.userManagement.takeStaffIntoListOfStaff(staff5);
+    }
+    initManager() {
+        let manager01 = new user_1.User('quanly01@gmail.com', 'quanly01', 'manager');
+        let manager02 = new user_1.User('quanly02@gmail.com', 'quanly02', 'manager');
+        this.userManagement.takeManagerIntoListOfManager(manager01);
+        this.userManagement.takeManagerIntoListOfManager(manager02);
+    }
+    initAdmin() {
+        let admin = new user_1.User('admin@gmail.com', 'admin01', 'admin');
+        this.userManagement.takeAdminIntoListOfAdmin(admin);
     }
 }
 exports.InitializationData = InitializationData;

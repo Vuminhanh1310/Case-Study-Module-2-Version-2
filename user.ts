@@ -1,35 +1,35 @@
 export class User{
     private username:string;
     private password:string;
-    private _rule: string;
+    private _role: string;
 
-    constructor(username: string, password: string, rule: string) {
+    constructor(username: string, password: string, role: string) {
         this.username = username;
         this.password = password;
-        this._rule = rule;
+        this._role = role;
     }
 
     getUserName(){
         return this.username;
     }
 
-    setUserName(username:string){
-        this.username=username;
+    setUserName(value: string){
+        this.username = value;
     }
 
     getPassword(){
         return this.password;
     }
 
-    setPassword(password:string){
-        this.password=password;
+    setPassword(value: string){
+        this.password = value;
     }
 
-    getRule(): string {
-        return this._rule;
+    getRole(): string {
+        return this._role;
     }
 
-    setRule(value: string) {
-        this._rule = value;
+    setRole(value: string) {
+        this._role = value;
     }
 }

@@ -4,10 +4,12 @@ import {CustomerRoom} from "./customer_room";
 import {CustomerRoomManagement} from "./customer_room_management";
 import {HotelRoomManagement} from "./hotel_room_management";
 import {User} from "./user";
+import {UserManagement} from "./user_management";
 
 export class InitializationData {
     customerManagement = new CustomerRoomManagement();
     hotelRoomManagement = new HotelRoomManagement();
+    userManagement = new UserManagement();
 
     initHotelRoom() {
         let numberOfFloor = 6;
@@ -68,10 +70,27 @@ export class InitializationData {
     }
 
     initStaff() {
-        let staff1 = new User('staff1', '001','staff')
-        let staff2 = new User('staff2', '002','staff')
-        let staff3 = new User('staff3', '003','staff')
-        let staff4 = new User('staff4', '004','staff')
+        let staff1 = new User('letan01@gmail.com', 'letan01','staff');
+        let staff2 = new User('letan02@gmail.com', 'letan02','staff');
+        let staff3 = new User('letan03@gmail.com', 'letan03','staff');
+        let staff4 = new User('letan04@gmail.com', 'letan04','staff');
+        let staff5 = new User('letan05@gmail.com', 'letan05','staff');
+        this.userManagement.takeStaffIntoListOfStaff(staff1);
+        this.userManagement.takeStaffIntoListOfStaff(staff2);
+        this.userManagement.takeStaffIntoListOfStaff(staff3);
+        this.userManagement.takeStaffIntoListOfStaff(staff4);
+        this.userManagement.takeStaffIntoListOfStaff(staff5);
     }
+    initManager(){
+        let manager01 = new User('quanly01@gmail.com', 'quanly01','manager');
+        let manager02 = new User('quanly02@gmail.com', 'quanly02','manager');
+        this.userManagement.takeManagerIntoListOfManager(manager01);
+        this.userManagement.takeManagerIntoListOfManager(manager02);
+    }
+    initAdmin(){
+        let admin = new User('admin@gmail.com','admin01','admin')
+        this.userManagement.takeAdminIntoListOfAdmin(admin)
+    }
+
 
 }

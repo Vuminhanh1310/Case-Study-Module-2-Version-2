@@ -31,6 +31,9 @@ const InitializationData_1 = require("./InitializationData");
 let data = new InitializationData_1.InitializationData();
 data.initHotelRoom();
 data.initCustomerRoom();
+data.initStaff();
+data.initManager();
+data.initAdmin();
 let choice = -1;
 let menu = new DislayScreen_1.Menu();
 function getInfoOfCustomer() {
@@ -199,25 +202,220 @@ function accessTaskOfStaff() {
         }
     } while (choice != MenuOfStaff.Exit);
 }
+var MenuOfManager;
+(function (MenuOfManager) {
+    MenuOfManager[MenuOfManager["Take_Customer_Into_Room"] = 1] = "Take_Customer_Into_Room";
+    MenuOfManager[MenuOfManager["Show_Data_Table_Of_Customer"] = 2] = "Show_Data_Table_Of_Customer";
+    MenuOfManager[MenuOfManager["Update_Info_Of_Customer"] = 3] = "Update_Info_Of_Customer";
+    MenuOfManager[MenuOfManager["Remove_Info_Of_Customer"] = 4] = "Remove_Info_Of_Customer";
+    MenuOfManager[MenuOfManager["Check_Out"] = 5] = "Check_Out";
+    MenuOfManager[MenuOfManager["Show_Data_Table_Of_Hotel_Room"] = 6] = "Show_Data_Table_Of_Hotel_Room";
+    MenuOfManager[MenuOfManager["Revenue_Management"] = 7] = "Revenue_Management";
+    MenuOfManager[MenuOfManager["Add_Staff_Account"] = 8] = "Add_Staff_Account";
+    MenuOfManager[MenuOfManager["Show_List_Of_Staff_Account"] = 9] = "Show_List_Of_Staff_Account";
+    MenuOfManager[MenuOfManager["Update_Staff_Account"] = 10] = "Update_Staff_Account";
+    MenuOfManager[MenuOfManager["Delete_Staff_Account"] = 11] = "Delete_Staff_Account";
+    MenuOfManager[MenuOfManager["Exit"] = 0] = "Exit";
+})(MenuOfManager || (MenuOfManager = {}));
+function accessTaskOfManager() {
+    do {
+        menu.menuOfManager();
+        choice = +rl.question('Nhập lựa chọn của bạn: ');
+        switch (choice) {
+            case MenuOfManager.Take_Customer_Into_Room: {
+                takeCustomerIntoRoom();
+                break;
+            }
+            case MenuOfManager.Show_Data_Table_Of_Customer: {
+                showDataTableOfCustomer();
+                break;
+            }
+            case MenuOfManager.Update_Info_Of_Customer: {
+                updateInfoOfCustomer();
+                break;
+            }
+            case MenuOfManager.Remove_Info_Of_Customer: {
+                removeInfoOfCustomer();
+                break;
+            }
+            case MenuOfManager.Check_Out: {
+                checkOut();
+                break;
+            }
+            case MenuOfManager.Show_Data_Table_Of_Hotel_Room: {
+                console.log('Hiển thị danh sách phòng');
+                showDataTableOfHotelRoom();
+                break;
+            }
+            case MenuOfManager.Revenue_Management: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfManager.Add_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfManager.Show_List_Of_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfManager.Update_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfManager.Delete_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+        }
+    } while (choice != MenuOfManager.Exit);
+}
+var MenuOfAdmin;
+(function (MenuOfAdmin) {
+    MenuOfAdmin[MenuOfAdmin["Take_Customer_Into_Room"] = 1] = "Take_Customer_Into_Room";
+    MenuOfAdmin[MenuOfAdmin["Show_Data_Table_Of_Customer"] = 2] = "Show_Data_Table_Of_Customer";
+    MenuOfAdmin[MenuOfAdmin["Update_Info_Of_Customer"] = 3] = "Update_Info_Of_Customer";
+    MenuOfAdmin[MenuOfAdmin["Remove_Info_Of_Customer"] = 4] = "Remove_Info_Of_Customer";
+    MenuOfAdmin[MenuOfAdmin["Check_Out"] = 5] = "Check_Out";
+    MenuOfAdmin[MenuOfAdmin["Show_Data_Table_Of_Hotel_Room"] = 6] = "Show_Data_Table_Of_Hotel_Room";
+    MenuOfAdmin[MenuOfAdmin["Revenue_Management"] = 7] = "Revenue_Management";
+    MenuOfAdmin[MenuOfAdmin["Add_Staff_Account"] = 8] = "Add_Staff_Account";
+    MenuOfAdmin[MenuOfAdmin["Show_List_Of_Staff_Account"] = 9] = "Show_List_Of_Staff_Account";
+    MenuOfAdmin[MenuOfAdmin["Update_Staff_Account"] = 10] = "Update_Staff_Account";
+    MenuOfAdmin[MenuOfAdmin["Delete_Staff_Account"] = 11] = "Delete_Staff_Account";
+    MenuOfAdmin[MenuOfAdmin["Add_Manager_Account"] = 12] = "Add_Manager_Account";
+    MenuOfAdmin[MenuOfAdmin["Show_List_Of_Manager_Account"] = 13] = "Show_List_Of_Manager_Account";
+    MenuOfAdmin[MenuOfAdmin["Update_Manager_Account"] = 14] = "Update_Manager_Account";
+    MenuOfAdmin[MenuOfAdmin["Delete_Manager_Account"] = 15] = "Delete_Manager_Account";
+    MenuOfAdmin[MenuOfAdmin["Exit"] = 0] = "Exit";
+})(MenuOfAdmin || (MenuOfAdmin = {}));
+function accessTaskOfAdmin() {
+    do {
+        menu.menuOfAdmin();
+        choice = +rl.question('Nhập lựa chọn của bạn: ');
+        switch (choice) {
+            case MenuOfAdmin.Take_Customer_Into_Room: {
+                takeCustomerIntoRoom();
+                break;
+            }
+            case MenuOfAdmin.Show_Data_Table_Of_Customer: {
+                showDataTableOfCustomer();
+                break;
+            }
+            case MenuOfAdmin.Update_Info_Of_Customer: {
+                updateInfoOfCustomer();
+                break;
+            }
+            case MenuOfAdmin.Remove_Info_Of_Customer: {
+                removeInfoOfCustomer();
+                break;
+            }
+            case MenuOfAdmin.Check_Out: {
+                checkOut();
+                break;
+            }
+            case MenuOfAdmin.Show_Data_Table_Of_Hotel_Room: {
+                console.log('Hiển thị danh sách phòng');
+                showDataTableOfHotelRoom();
+                break;
+            }
+            case MenuOfAdmin.Revenue_Management: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Add_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Show_List_Of_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Update_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Delete_Staff_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Add_Manager_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Show_List_Of_Manager_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Update_Manager_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+            case MenuOfAdmin.Delete_Manager_Account: {
+                console.log('Đang phát triển');
+                break;
+            }
+        }
+    } while (choice != MenuOfAdmin.Exit);
+}
+function checkInputStaffAccount() {
+    let userName = rl.question('Nhập Username: ');
+    let password = rl.question('Nhập Password: ');
+    return data.userManagement.checkStaff(userName, password);
+}
+function checkInputManagerAccount() {
+    let userName = rl.question('Nhập Username: ');
+    let password = rl.question('Nhập Password: ');
+    return data.userManagement.checkManager(userName, password);
+}
+function checkInputAdminAccount() {
+    let userName = rl.question('Nhập Username: ');
+    let password = rl.question('Nhập Password: ');
+    return data.userManagement.checkAdmin(userName, password);
+}
+var MenuOfLogin;
+(function (MenuOfLogin) {
+    MenuOfLogin[MenuOfLogin["Login_By_StaffAccount"] = 1] = "Login_By_StaffAccount";
+    MenuOfLogin[MenuOfLogin["Login_By_ManagerAccount"] = 2] = "Login_By_ManagerAccount";
+    MenuOfLogin[MenuOfLogin["Login_By_AdminAccount"] = 3] = "Login_By_AdminAccount";
+    MenuOfLogin[MenuOfLogin["Exit"] = 0] = "Exit";
+})(MenuOfLogin || (MenuOfLogin = {}));
 do {
     menu.menuOfLogin();
     choice = +rl.question('Nhập chức danh của bạn: ');
     switch (choice) {
-        case 1: {
-            accessTaskOfStaff();
+        case MenuOfLogin.Login_By_StaffAccount: {
+            let check = checkInputStaffAccount();
+            if (check) {
+                accessTaskOfStaff();
+            }
+            else {
+                console.log('Liên hệ với quản lý để đăng nhập');
+                checkInputStaffAccount();
+            }
             break;
         }
-        case 2: {
+        case MenuOfLogin.Login_By_ManagerAccount: {
+            let check = checkInputManagerAccount();
+            if (check) {
+                accessTaskOfManager();
+            }
+            else {
+                console.log('Liên hệ với admin để đăng nhập');
+                checkInputManagerAccount();
+            }
             break;
         }
-        case 3: {
-            break;
-        }
-        case 4: {
-            break;
-        }
-        case 5: {
+        case MenuOfLogin.Login_By_AdminAccount: {
+            let check = checkInputAdminAccount();
+            if (check) {
+                accessTaskOfAdmin();
+            }
+            else {
+                console.log('Liên hệ với kỹ thuật để đăng nhập');
+                checkInputAdminAccount();
+            }
             break;
         }
     }
-} while (choice != 0);
+} while (choice != MenuOfLogin.Exit);
